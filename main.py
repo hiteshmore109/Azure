@@ -36,6 +36,7 @@ metadata.create_all(engine)
 
 @app.on_event("startup")
 async def startup():
+    print("Hello")
     await database.connect()
 
 
