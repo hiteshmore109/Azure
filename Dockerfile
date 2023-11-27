@@ -5,6 +5,7 @@ WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install -r requirements.txt
 
-COPY ./main.py /code/main.py
+# COPY ./main.py /code/main.py
+COPY ./src /code/src
 
-CMD [ "uvicorn", "--host", "0.0.0.0", "main:app" ]
+CMD [ "uvicorn", "--host", "0.0.0.0", "src.main:app" ]
