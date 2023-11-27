@@ -8,4 +8,5 @@ RUN pip install -r requirements.txt
 # COPY ./main.py /code/main.py
 COPY ./src /code/src
 
-CMD [ "uvicorn", "--host", "0.0.0.0", "src.main:app" ]
+# CMD [ "uvicorn", "--host", "0.0.0.0", "src.main:app" ]
+CMD [ "gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "-b", "0.0.0.0", "src.main:app" ]
